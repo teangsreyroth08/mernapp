@@ -11,7 +11,9 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@apollo/client": "^3.11.1",
     "colors": "^1.4.0",
+    "cors": "^2.8.5",
     "cros": "^1.0.1",
     "express": "^4.19.2",
     "express-graphql": "^0.12.0",

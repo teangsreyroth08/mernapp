@@ -1,5 +1,6 @@
 const express = require('express');
 const colors = require('colors'); //await mongoose.connect(process.env.MONGO_URL
+const cors = require('cors');
 require('dotenv').config();
 const { graphqlHTTP } = require('express-graphql');
 const schema =require('./schema/schema');
@@ -10,6 +11,8 @@ const app = express();
 
 //Connect to database
 connectDB();
+
+app.use(cors());
 
 app.use(
   '/graphql',
