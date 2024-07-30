@@ -1,7 +1,7 @@
-import { gql, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import ClientRow from './ClientRow';// Adjust the path according to your file structure
 import Spinner from './Spinner';
-import { GET_CLIENTS } from '../queries/clientsQueries';
+import { GET_CLIENTS } from '../queries/clientQueries';
 
 export default function Clients() {
   const { loading, error, data} = useQuery(GET_CLIENTS);
