@@ -13,45 +13,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '14'
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '20'
 
-      - name: Install dependencies
-        run: npm install
+    - name: Install dependencies
+      run: npm install
 
-      - name: Run tests
-        run: npm test
+    - name: Build project
+      run: npm run build
 
-      - name: Build application
-        run: npm run build
+    - name: Run tests
+      run: npm test
 
-  deploy:
-    if: github.ref == 'refs/heads/master'
-    runs-on: ubuntu-latest
-
-    needs: build
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Deploy to server
-        run: |
-          echo "Deploying to production server"
-          # Add your deployment script or commands here
-          # For example, you could use SSH to copy files to a server:
-          # scp -r ./build user@your-server.com:/path/to/deployment
-
+    - name: Deployment
+      
