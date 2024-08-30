@@ -1,43 +1,86 @@
-name: CI/CD Pipeline
+# name: CI/CD Pipeline
 
-on:
-  push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master
+# on:
+#   push:
+#     branches:
+#       - master
+#   pull_request:
+#     branches:
+#       - master
 
-  stages:
+#   stages:
+#   - build
+#   - test
+#   - deploy
+#   - .post
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#     - name: Checkout code
+#       uses: actions/checkout@v2
+
+#     - name: Set up Node.js
+#       uses: actions/setup-node@v2
+#       with:
+#         node-version: '20'
+
+#     - name: Install dependencies
+#       run: npm install
+
+#     - name: Build project
+#       run: npm run build
+
+#     - name: Run tests
+#       run: npm test
+
+#     - name: Deployment
+
+    
+
+      
+stages:          # List of stages for jobs, and their order of execution
   - build
   - test
   - deploy
   - .post
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+build-job:       # This job runs in the build stage, which runs first.
+  stage: build
+  script:
+    - echo "Compiling the code..."
+    - echo "Compile complete."
 
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+unit-test-job:   # This job runs in the test stage.
+  stage: test    # It only starts when the job in the build stage completes successfully.
+  script:
+    - echo "Running unit tests... This will take about 60 seconds."
+    - sleep 60
+    - echo "Code coverage is 90%"
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '20'
+lint-test-job:   # This job also runs in the test stage.
+  stage: test    # It can run at the same time as unit-test-job (in parallel).
+  script:
+    - echo "Linting code... This will take about 10 seconds."
+    - sleep 10
+    - echo "No lint issues found."
 
-    - name: Install dependencies
-      run: npm install
+deploy-job:      # This job runs in the deploy stage.
+  stage: deploy  # It only runs when *both* jobs in the test stage complete successfully.
+  environment: production
+  script:
+    - echo "Deploying application..."
+    - echo "Application successfully deployed."
+    - echo "Committing application by @teangsreyroth..."
 
-    - name: Build project
-      run: npm run build
-
-    - name: Run tests
-      run: npm test
-
-    - name: Deployment
-
-    
-
-      
+# notification:
+notification-job:
+  stage: .post
+  script:
+    - echo "CI/CD pipeline"
+    - >
+      curl -X POST https://api.telegram.org/bot7442834678:AAHbjXuZQUmJO9Aj6kZ7aOAaNG-ehRFqLbk/sendMessage
+      -d chat_id=628390613
+      -d text="Deployment completed successfully!"
