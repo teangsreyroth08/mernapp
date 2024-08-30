@@ -38,13 +38,6 @@ jobs:
 
     - name: Deployment
 
-    notification-job:
-    stage: .post
-    script:
-      - echo "CI/CD pipeline"
-      - >
-        curl -X POST https://api.telegram.org/bot7442834678:AAHbjXuZQUmJO9Aj6kZ7aOAaNG-ehRFqLbk/sendMessage
-        -d chat_id=628390613
-        -d text="Deployment completed successfully!"
+    
 
       
