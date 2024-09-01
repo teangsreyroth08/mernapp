@@ -1,9 +1,10 @@
 {
   "name": "project_mern",
   "version": "1.0.0",
-  "master": "index.js",
+  "main": "index.js",
   "scripts": {
     "start": "node server/index.js",
+    "build": "react/index.js",
     "dev": "nodemon server/index.js"
   },
   "keywords": [],
