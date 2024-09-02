@@ -74,7 +74,7 @@ jobs:
     needs: build  # Ensures this job only runs if the build job succeeds
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
@@ -82,10 +82,10 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Run tests
-        run: npm test
+        run: npm install
 
   deploy:
     runs-on: ubuntu-latest
