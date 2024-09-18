@@ -16,7 +16,7 @@ test('renders learn react link', () => {
   render(<App />);
 
   // Look for an element that contains the text "learn react", case insensitive
-  const linkElement = screen.getByText(/learn react/);
+  const linkElement = screen.getByText(/learn react/i);
 
   // Assert that the element is found in the DOM
   expect(linkElement).toBeInTheDocument();
