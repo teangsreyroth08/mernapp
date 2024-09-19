@@ -16,7 +16,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import App from './App';
 import { ApolloProvider } from '@apollo/client';
-import { MockedProvider } from '@apollo/client/testing';
+// import { MockedProvider } from '@apollo/client/testing';
 import { InMemoryCache } from '@apollo/client';
 
 const client = new ApolloClient({
