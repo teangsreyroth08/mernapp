@@ -8,7 +8,7 @@
 // });
 
 
-import { render, screen } from '@testing-library/react';  // Ensure correct import
+import { render, screen } from '@testing-library/react';  // Correct import
 import App from './App';  // Import the App component
 
 test('renders learn react link', () => {
@@ -21,3 +21,4 @@ test('renders learn react link', () => {
   // Assert that the element is found in the DOM
   expect(linkElement).toBeInTheDocument();
 });
+
