@@ -33,7 +33,7 @@ jobs:
       run: |
         echo "CI/CD Pipeline Status: success"
         echo "Deployment Status: success"
-        echo "PROJECT: MyProject"
+        echo "PROJECT: MERN_Project"
         echo "APPLICATION: my-app"
         echo "STATUS: success"
         # echo "ENV: Development"
