@@ -51,6 +51,6 @@ jobs:
           curl -X POST https://api.telegram.org/bot77442834678:AAHbjXuZQUmJO9Aj6kZ7aOAaNG-ehRFqLbk/sendMessage \
           -d chat_id= 628390613 \
           -d text="Deployment succeeded: CI/CD Pipeline Status: success. \
-          # Project: MyProject, Application: my-app, Environment: Development, \
+          # Project: MERN_Project, Application: my-app, Environment: Development, \
           # Committer: $(git log -1 --pretty=format:'%cn'), Commit: $(git log -1 --pretty=format:'%H'), \
           # Message: $(git log -1 --pretty=format:'%s')"
