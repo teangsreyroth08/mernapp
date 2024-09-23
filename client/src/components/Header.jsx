@@ -6,12 +6,12 @@ export default function Header() {
       <div className='container'>
         <a className='navbar-brand' href='/'>
           <div className='d-flex'>
-            <img src={logo} alt='logo' className='me-2' />
+            <img src={logo} alt='logo' className='me-2' style={{ height: '40px' }} />
             <div>
               ProjectMgmt
             </div>
           </div>
-        </a> 
+        </a>
       </div>
     </nav>
   );
