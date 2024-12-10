@@ -1,56 +1,56 @@
-name: Test Notification Telegram
+# name: Test Notification Telegram
 
-on:
-  push:
-    branches:
-      - master  # or the branch you want to track
+# on:
+#   push:
+#     branches:
+#       - master  # or the branch you want to track
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
 
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+#     steps:
+#     - name: Checkout repository
+#       uses: actions/checkout@v2
 
-    - name: Set up Node.js (if your project uses Node.js)
-      uses: actions/setup-node@v2
-      with:
-        node-version: '20'
+#     - name: Set up Node.js (if your project uses Node.js)
+#       uses: actions/setup-node@v2
+#       with:
+#         node-version: '20'
 
-    - name: Install dependencies
-      run: npm install
+#     - name: Install dependencies
+#       run: npm install
 
-    - name: Build project
-      run: npm run build
+#     - name: Build project
+#       run: npm run build
 
-    - name: Deploy to environment
-      run: |
-        echo "Deploying to Development environment"
-        # Add your deployment script here
+#     - name: Deploy to environment
+#       run: |
+#         echo "Deploying to Development environment"
+#         # Add your deployment script here
 
-    - name: Commit details
-      run: |
-        echo "CI/CD Pipeline Status: success"
-        echo "Deployment Status: success"
-        echo "PROJECT: MERN_Project"
-        echo "APPLICATION: my-app"
-        echo "STATUS: success"
-        # echo "ENV: Development"
-        # echo "COMMITTER: $(git log -1 --pretty=format:'%cn')"
-        # echo "DATE: $(date)"
-        # echo "TIME: $(date +%T)"
-        # echo "COMMIT: $(git log -1 --pretty=format:'%H')"
+#     - name: Commit details
+#       run: |
+#         echo "CI/CD Pipeline Status: success"
+#         echo "Deployment Status: success"
+#         echo "PROJECT: MERN_Project"
+#         echo "APPLICATION: my-app"
+#         echo "STATUS: success"
+#         # echo "ENV: Development"
+#         # echo "COMMITTER: $(git log -1 --pretty=format:'%cn')"
+#         # echo "DATE: $(date)"
+#         # echo "TIME: $(date +%T)"
+#         # echo "COMMIT: $(git log -1 --pretty=format:'%H')"
 
-  # notify:
-  #   runs-on: ubuntu-latest
-  #   needs: build  # Ensures this job only runs if the build job succeeds
-  #   steps:
-  #     - name: Notify via Telegram
-  #       run: |
-  #         curl -X POST https://api.telegram.org/bot77442834678:AAHbjXuZQUmJO9Aj6kZ7aOAaNG-ehRFqLbk/sendMessage \
-  #         -d chat_id= 628390613 \
-  #         -d text="Deployment succeeded: CI/CD Pipeline Status: success. \
-  #         # Project: MERN_Project, Application: my-app, Environment: Development, \
-  #         # Committer: $(git log -1 --pretty=format:'%cn'), Commit: $(git log -1 --pretty=format:'%H'), \
-  #         # Message: $(git log -1 --pretty=format:'%s')"
+#   # notify:
+#   #   runs-on: ubuntu-latest
+#   #   needs: build  # Ensures this job only runs if the build job succeeds
+#   #   steps:
+#   #     - name: Notify via Telegram
+#   #       run: |
+#   #         curl -X POST https://api.telegram.org/bot77442834678:AAHbjXuZQUmJO9Aj6kZ7aOAaNG-ehRFqLbk/sendMessage \
+#   #         -d chat_id= 628390613 \
+#   #         -d text="Deployment succeeded: CI/CD Pipeline Status: success. \
+#   #         # Project: MERN_Project, Application: my-app, Environment: Development, \
+#   #         # Committer: $(git log -1 --pretty=format:'%cn'), Commit: $(git log -1 --pretty=format:'%H'), \
+#   #         # Message: $(git log -1 --pretty=format:'%s')"
